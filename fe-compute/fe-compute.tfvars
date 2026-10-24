@@ -1,0 +1,5 @@
+name_prefix = "fe"
+environment = "dev"
+region = "ap-southeast-1"
+bastion_instance_type = "t3.nano"
+private_instance_type = "t3.nano"
