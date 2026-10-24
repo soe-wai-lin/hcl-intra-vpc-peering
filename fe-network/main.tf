@@ -146,12 +146,6 @@ resource "aws_route_table_association" "fe_private_02" {
   route_table_id = aws_route_table.fe_private_rt_02.id
 }
 
-# resource "aws_route" "fe_private_02_to_be_private_02" {
-#   route_table_id            = aws_route_table.fe_private_rt_02.id
-#   destination_cidr_block    = "192.168.254.0/24"
-#   vpc_peering_connection_id = "pcx-02afec0b4b685df79"
-# }
-
 resource "aws_route_table" "fe_private_rt_03" {
   vpc_id = aws_vpc.fe.id
 
