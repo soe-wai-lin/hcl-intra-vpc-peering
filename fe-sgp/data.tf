@@ -1,23 +1,28 @@
-data "terraform_remote_state" "fe_network" {
-  backend = "remote"
+# data "terraform_remote_state" "fe_network" {
+#   backend = "remote"
 
-  config = {
-    organization = "swl-tfc"
+#   config = {
+#     organization = "swl-tfc"
 
-    workspaces = {
-      name = "fe-network"
-    }
-  }
-}
+#     workspaces = {
+#       name = "fe-network"
+#     }
+#   }
+# }
 
-data "terraform_remote_state" "be_sgp" {
-  backend = "remote"
+# data "terraform_remote_state" "be_sgp" {
+#   backend = "remote"
 
-  config = {
-    organization = "swl-tfc"
+#   config = {
+#     organization = "swl-tfc"
 
-    workspaces = {
-      name = "be-sgp"
-    }
-  }
+#     workspaces = {
+#       name = "be-sgp"
+#     }
+#   }
+# }
+
+data "tfe_output" "fe_network" {
+  workspace = var.fe_network
+  organization = var.hcp_org_name
 }
