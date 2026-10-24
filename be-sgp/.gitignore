@@ -4,5 +4,4 @@
 
 *.terraform.lock.hcl
 
-*.tf
 
