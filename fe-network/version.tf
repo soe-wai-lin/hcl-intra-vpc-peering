@@ -7,6 +7,7 @@ terraform {
       version = "6.70.0"
     }
   }
+  
   cloud {
 
     organization = "swl-tfc"
