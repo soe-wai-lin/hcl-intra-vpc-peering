@@ -8,7 +8,7 @@ resource "aws_security_group" "fe_pub_sgp" {
   name        = "${var.name_prefix}-pub-sgp"
   description = "SSH access to the frontend bastion from explicitly allowed IPv4 CIDRs."
   # vpc_id      = data.terraform_remote_state.fe_network.outputs.fe_vpc_id
-  vpc_id      = data.tfe_output.fe_network.outputs.fe_vpc_id
+  vpc_id      = data.tfe_outputs.fe_network.outputs.fe_vpc_id
 
   tags = merge(local.common_tags, {
     Name = "${var.name_prefix}-pub-sgp-01"
@@ -59,7 +59,7 @@ resource "aws_security_group" "fe_pri_sgp_01" {
   name        = "${var.name_prefix}-pri-sgp-01"
   description = "SSH access to the frontend bastion from explicitly allowed IPv4 CIDRs."
   # vpc_id      = data.terraform_remote_state.fe_network.outputs.fe_vpc_id
-  vpc_id      = data.tfe_output.fe_network.outputs.fe_vpc_id
+  vpc_id      = data.tfe_outputs.fe_network.outputs.fe_vpc_id
 
   tags = merge(local.common_tags, {
     Name = "${var.name_prefix}-pri-sgp-01"
@@ -110,7 +110,7 @@ resource "aws_vpc_security_group_egress_rule" "fe_pri_sgp_01_egress" {
 resource "aws_security_group" "fe_pri_sgp_02" {
   name        = "${var.name_prefix}-pri-sgp-02"
   # vpc_id      = data.terraform_remote_state.fe_network.outputs.fe_vpc_id
-  vpc_id      = data.tfe_output.fe_network.outputs.fe_vpc_id
+  vpc_id      = data.tfe_outputs.fe_network.outputs.fe_vpc_id
 
   tags = merge(local.common_tags, {
     Name = "${var.name_prefix}-pri-sgp-02"
@@ -175,7 +175,7 @@ resource "aws_vpc_security_group_egress_rule" "fe_pri_sgp_02_egress" {
 resource "aws_security_group" "fe_pri_sgp_03" {
   name        = "${var.name_prefix}-pri-sgp-03"
   # vpc_id      = data.terraform_remote_state.fe_network.outputs.fe_vpc_id
-  vpc_id      = data.tfe_output.fe_network.outputs.fe_vpc_id
+  vpc_id      = data.tfe_outputs.fe_network.outputs.fe_vpc_id
 
   tags = merge(local.common_tags, {
     Name = "${var.name_prefix}-pri-sgp-03"
