@@ -165,8 +165,11 @@ resource "aws_eip" "fe_nat" {
 }
 
 resource "aws_nat_gateway" "fe" {
-  allocation_id = aws_eip.fe_nat.id
-  subnet_id     = aws_subnet.fe_public_01.id
+  # allocation_id = aws_eip.fe_nat.id
+  # subnet_id     = aws_subnet.fe_public_01.id
+
+  vpc_id = aws_vpc.fe.id
+  availability_mode = "regional"
   depends_on    = [aws_internet_gateway.fe]
   tags          = merge(local.common_tags, { Name = "${var.name_prefix}-nat" })
 }
