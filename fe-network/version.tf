@@ -8,7 +8,6 @@ terraform {
     }
   }
 
-
   cloud {
 
     organization = "swl-tfc"
