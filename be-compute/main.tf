@@ -70,7 +70,8 @@ resource "aws_instance" "be_private_02" {
   subnet_id                   = data.tfe_outputs.be_network.nonsensitive_values.be_private_subnet_02
   vpc_security_group_ids      = [data.tfe_outputs.be_sgp.nonsensitive_values.be-pri-sgp-02-id]
   associate_public_ip_address = false
-  key_name                    = aws_key_pair.be_keypair.key_name
+  # key_name                    = aws_key_pair.be_keypair.key_name
+  key_name                    = "singapore-key"
 
   #   metadata_options {
   #     http_endpoint               = "enabled"

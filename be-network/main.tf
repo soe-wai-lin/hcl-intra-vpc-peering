@@ -165,10 +165,12 @@ resource "aws_eip" "be_nat" {
 }
 
 resource "aws_nat_gateway" "be" {
-  allocation_id = aws_eip.be_nat.id
-  subnet_id     = aws_subnet.be_public_01.id
-  depends_on    = [aws_internet_gateway.be]
-  tags          = merge(local.common_tags, { Name = "${var.name_prefix}-nat" })
+  # allocation_id = aws_eip.be_nat.id
+  # subnet_id     = aws_subnet.be_public_01.id
+  vpc_id            = aws_vpc.be.id
+  availability_mode = "regional"
+  depends_on        = [aws_internet_gateway.be]
+  tags              = merge(local.common_tags, { Name = "${var.name_prefix}-nat" })
 }
 
 resource "aws_route" "be_private_nat" {
