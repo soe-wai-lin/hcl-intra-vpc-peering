@@ -1,7 +1,7 @@
 variable "name_prefix" {
   description = "Prefix used for VPC and related resource names."
   type        = string
-  default  = "fe"
+  default     = "fe"
 }
 
 variable "region" {
@@ -23,14 +23,14 @@ variable "bastion_ssh_cidr_blocks" {
 }
 
 variable "hcp_org_name" {
-  type  = string
-  default = "swl-tfc"
+  type        = string
+  default     = "swl-tfc"
   description = "Organization name of HCP"
 }
 
 variable "fe_network" {
-  type  = string
-  default = "fe-network"
+  type        = string
+  default     = "fe-network"
   description = "Workspace name of fe-network"
 }
 

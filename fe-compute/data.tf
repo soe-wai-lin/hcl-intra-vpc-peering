@@ -23,11 +23,11 @@
 # }
 
 data "tfe_outputs" "fe_network" {
-  workspace = var.fe_network
+  workspace    = var.fe_network
   organization = var.hcp_org_name
 }
 
 data "tfe_outputs" "fe_sgp" {
-  workspace = var.fe_sgp
+  workspace    = var.fe_sgp
   organization = var.hcp_org_name
 }

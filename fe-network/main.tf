@@ -165,10 +165,10 @@ resource "aws_eip" "fe_nat" {
 }
 
 resource "aws_nat_gateway" "fe" {
-  vpc_id = aws_vpc.fe.id
+  vpc_id            = aws_vpc.fe.id
   availability_mode = "regional"
-  depends_on    = [aws_internet_gateway.fe]
-  tags          = merge(local.common_tags, { Name = "${var.name_prefix}-nat" })
+  depends_on        = [aws_internet_gateway.fe]
+  tags              = merge(local.common_tags, { Name = "${var.name_prefix}-nat" })
 }
 
 resource "aws_route" "fe_private_nat" {

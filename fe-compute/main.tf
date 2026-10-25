@@ -17,11 +17,11 @@ resource "aws_instance" "fe_bastion" {
   key_name                    = "singapore-key"
   # key_name                    = aws_key_pair.fe_keypair.key_name
 
-#   metadata_options {
-#     http_endpoint               = "enabled"
-#     http_tokens                 = "required"
-#     http_put_response_hop_limit = 1
-#   }
+  #   metadata_options {
+  #     http_endpoint               = "enabled"
+  #     http_tokens                 = "required"
+  #     http_put_response_hop_limit = 1
+  #   }
   root_block_device {
     encrypted             = true
     volume_type           = "gp3"
@@ -46,11 +46,11 @@ resource "aws_instance" "fe_private_01" {
   key_name                    = "singapore-key"
   # key_name                    = aws_key_pair.fe_keypair.key_name
 
-#   metadata_options {
-#     http_endpoint               = "enabled"
-#     http_tokens                 = "required"
-#     http_put_response_hop_limit = 1
-#   }
+  #   metadata_options {
+  #     http_endpoint               = "enabled"
+  #     http_tokens                 = "required"
+  #     http_put_response_hop_limit = 1
+  #   }
 
   root_block_device {
     encrypted             = true
@@ -64,18 +64,18 @@ resource "aws_instance" "fe_private_01" {
 }
 
 resource "aws_instance" "fe_private_02" {
-  ami                         = data.aws_ssm_parameter.ubuntu_24604.value
-  instance_type               = var.private_instance_type
-  subnet_id                   = data.tfe_outputs.fe_network.nonsensitive_values.fe_private_subnet_02
-  vpc_security_group_ids      = [data.tfe_outputs.fe_sgp.nonsensitive_values.fe_pri_sgp_02_id]
+  ami                    = data.aws_ssm_parameter.ubuntu_24604.value
+  instance_type          = var.private_instance_type
+  subnet_id              = data.tfe_outputs.fe_network.nonsensitive_values.fe_private_subnet_02
+  vpc_security_group_ids = [data.tfe_outputs.fe_sgp.nonsensitive_values.fe_pri_sgp_02_id]
   # key_name                    = aws_key_pair.fe_keypair.key_name
-  key_name                    = "singapore-key"
+  key_name = "singapore-key"
 
-#   metadata_options {
-#     http_endpoint               = "enabled"
-#     http_tokens                 = "required"
-#     http_put_response_hop_limit = 1
-#   }
+  #   metadata_options {
+  #     http_endpoint               = "enabled"
+  #     http_tokens                 = "required"
+  #     http_put_response_hop_limit = 1
+  #   }
 
   root_block_device {
     encrypted             = true
@@ -97,11 +97,11 @@ resource "aws_instance" "fe_private_03" {
   key_name                    = "singapore-key"
   # key_name                    = aws_key_pair.fe_keypair.key_name
 
-#   metadata_options {
-#     http_endpoint               = "enabled"
-#     http_tokens                 = "required"
-#     http_put_response_hop_limit = 1
-#   }
+  #   metadata_options {
+  #     http_endpoint               = "enabled"
+  #     http_tokens                 = "required"
+  #     http_put_response_hop_limit = 1
+  #   }
 
   root_block_device {
     encrypted             = true

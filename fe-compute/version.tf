@@ -11,7 +11,7 @@ terraform {
   }
 
   cloud {
-    
+
     organization = "swl-tfc"
 
     workspaces {

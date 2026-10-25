@@ -29,19 +29,19 @@ variable "private_instance_type" {
 }
 
 variable "hcp_org_name" {
-  type  = string
-  default = "swl-tfc"
+  type        = string
+  default     = "swl-tfc"
   description = "Organization name of HCP"
 }
 
 variable "fe_network" {
-  type  = string
-  default = "fe-network"
+  type        = string
+  default     = "fe-network"
   description = "Workspace name of fe-network"
 }
 
 variable "fe_sgp" {
-  type  = string
-  default = "fe-sgp"
+  type        = string
+  default     = "fe-sgp"
   description = "Workspace name of fe-sgp"
 }
