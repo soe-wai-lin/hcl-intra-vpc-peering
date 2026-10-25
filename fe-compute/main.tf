@@ -23,7 +23,6 @@ resource "aws_instance" "fe_bastion" {
 #     http_tokens                 = "required"
 #     http_put_response_hop_limit = 1
 #   }
-
   root_block_device {
     encrypted             = true
     volume_type           = "gp3"
