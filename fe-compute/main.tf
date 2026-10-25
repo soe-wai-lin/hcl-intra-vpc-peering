@@ -12,7 +12,7 @@ resource "aws_instance" "fe_bastion" {
   ami                         = data.aws_ssm_parameter.amazon_linux_2023.value
   instance_type               = var.bastion_instance_type
   subnet_id                   = data.tfe_outputs.fe_network.nonsensitive_values.fe_public_subnet_01
-  vpc_security_group_ids      = [data.tfe_outputs.fe_sgp.nonsensitive_values.fe-public-sg-id]
+  vpc_security_group_ids      = [data.tfe_outputs.fe_sgp.nonsensitive_values.fe_pub_sgp_id]
   associate_public_ip_address = true
   # key_name                    = "singapore-key"
   key_name                    = aws_key_pair.fe_keypair.key_name
@@ -41,7 +41,7 @@ resource "aws_instance" "fe_private_01" {
   ami                         = data.aws_ssm_parameter.ubuntu_24604.value
   instance_type               = var.private_instance_type
   subnet_id                   = data.tfe_outputs.fe_network.nonsensitive_values.fe_private_subnet_01
-  vpc_security_group_ids      = [data.tfe_outputs.fe_sgp.nonsensitive_values.fe-pri-sgp-01-id]
+  vpc_security_group_ids      = [data.tfe_outputs.fe_sgp.nonsensitive_values.fe_pri_sgp_01_id]
   associate_public_ip_address = false
   # key_name                    = "singapore-key"
   key_name                    = aws_key_pair.fe_keypair.key_name
@@ -67,7 +67,7 @@ resource "aws_instance" "fe_private_02" {
   ami                         = data.aws_ssm_parameter.ubuntu_24604.value
   instance_type               = var.private_instance_type
   subnet_id                   = data.tfe_outputs.fe_network.nonsensitive_values.fe_private_subnet_02
-  vpc_security_group_ids      = [data.tfe_outputs.fe_sgp.nonsensitive_values.fe-pri-sgp-02-id]
+  vpc_security_group_ids      = [data.tfe_outputs.fe_sgp.nonsensitive_values.fe_pri_sgp_02_id]
   key_name                    = aws_key_pair.fe_keypair.key_name
 
 #   metadata_options {
@@ -91,7 +91,7 @@ resource "aws_instance" "fe_private_03" {
   ami                         = data.aws_ssm_parameter.ubuntu_24604.value
   instance_type               = var.private_instance_type
   subnet_id                   = data.tfe_outputs.fe_network.nonsensitive_values.fe_private_subnet_03
-  vpc_security_group_ids      = [data.tfe_outputs.fe_sgp.nonsensitive_values.fe-pri-sgp-03-id]
+  vpc_security_group_ids      = [data.tfe_outputs.fe_sgp.nonsensitive_values.fe_pri_sgp_03_id]
   associate_public_ip_address = false
   # key_name                    = "singapore-key"
   key_name                    = aws_key_pair.fe_keypair.key_name
