@@ -174,7 +174,7 @@ resource "aws_vpc_security_group_egress_rule" "be_pri_sgp_02_egress" {
 resource "aws_security_group" "be_pri_sgp_03" {
   name = "${var.name_prefix}-pri-sgp-03"
   #   description = "SSH access to the frontend bastion from explicitly allowed IPv4 CIDRs."
-  vpc_id = data.tfe_outputs.fe_network.nonsensitive_values.be_vpc_id
+  vpc_id = data.tfe_outputs.be_network.nonsensitive_values.be_vpc_id
 
   tags = merge(local.common_tags, {
     Name = "${var.name_prefix}-pri-sgp-03"
